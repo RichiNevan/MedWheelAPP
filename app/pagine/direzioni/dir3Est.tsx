@@ -6,26 +6,32 @@ import {
   ImageBackground,
   Image,
 } from "react-native";
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useSettings } from "../../SettingsContext";
 import { useNavigation } from "expo-router";
 
-
 const Est = () => {
   const { language } = useSettings();
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   useEffect(() => {
     // Dynamically setting header options when this page is loaded
     navigation.setOptions({
-      title: '',
+      title: "",
       headerBackground: () => (
-        <ImageBackground source={require('@/assets/images/headerbg.jpg')}
-        style={styles.headerBg} />
+        <ImageBackground
+          source={require("@/assets/images/headerbg.jpg")}
+          style={styles.headerBg}
+        />
       ),
       headerStyle: styles.header,
-      headerTintColor: 'white',
-      headerBackTitle: language === 'prt' ? 'Voltar' : language === 'ita' ? 'Indietro' : 'Back'
+      headerTintColor: "white",
+      headerBackTitle:
+        language === "prt"
+          ? "Voltar"
+          : language === "ita"
+          ? "Indietro"
+          : "Back",
     });
   }, [navigation]);
 
@@ -575,8 +581,9 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -605,12 +612,12 @@ const styles = StyleSheet.create({
     height: 400,
   },
   headerBg: {
-    width: '100%',
-    height: '100%',
-    opacity: 0.95
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
   },
   header: {
-    borderBlockColor: 'white',
-   borderColor: 'white',
-  }
+    borderBlockColor: "white",
+    borderColor: "white",
+  },
 });

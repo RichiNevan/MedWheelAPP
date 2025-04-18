@@ -217,7 +217,7 @@ const Inverno = () => {
             eles se lembrarem dos próprios cuidados. O elemento fogo, faz
             intensificar sua natureza, lhe dando mais energia e penetração.{" "}
             {"\n"}
-            Mas do que outra lua , esta deve se guardar de brilhar tão
+            Mas do que outra lua, esta deve se guardar de brilhar tão
             intensamente, que acabe perdendo sua própria energia. {"\n"}
             Devem aprender a temperar energia que o fogo lhe dá, para que o fogo
             interior possa trazer calor e luz para com as coisas que eles entram
@@ -542,8 +542,9 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -555,25 +556,23 @@ const styles = StyleSheet.create({
     fontFamily: "Cocchin",
     color: "darkred",
     margin: 20,
-   
   },
   imageView: {
     flex: 1,
-    height: 300,
+    height: 360,
     width: 350,
     margin: "auto",
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "white",
     overflow: "hidden",
-    marginVertical: 30,
-    borderWidth: 1,
-    borderColor: "black",
-    borderRadius: 20
+    marginVertical: 10,
+    borderRadius: 20,
   },
 
   image: {
     resizeMode: "contain",
+    bottom: 290,
+    width: 350,
   },
   headerBg: {
     width: "100%",

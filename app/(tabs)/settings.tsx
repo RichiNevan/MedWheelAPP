@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import DropDown from "@/components/DropDown";
 import DropDownPicker from "react-native-dropdown-picker";
 import { useSettings } from "../SettingsContext";
+import { mobile, android, ios } from "../SettingsContext";
 
 const SettingsScreen = () => {
-  const { hemisphere, language, setHemisphere, setLanguage} = useSettings()
+  const { hemisphere, language, setHemisphere, setLanguage } = useSettings();
 
   const [openEmi, setOpenEmi] = useState(false);
   const [openLang, setOpenLang] = useState(false);
@@ -18,20 +19,22 @@ const SettingsScreen = () => {
     { label: "Italiano", value: "ita" },
   ]);
 
-  const handleChangeValueEMI = (selectedValue: 'north' | 'south' | null) => {
+  const handleChangeValueEMI = (selectedValue: "north" | "south" | null) => {
     if (selectedValue !== null) {
       setHemisphere(selectedValue);
     } else {
-      setHemisphere('south')
+      setHemisphere("south");
     }
-  }
-  const handleChangeValueLANG = (selectedValueLANG: 'prt' | 'eng' | 'ita' | null) => {
+  };
+  const handleChangeValueLANG = (
+    selectedValueLANG: "prt" | "eng" | "ita" | null
+  ) => {
     if (selectedValueLANG !== null) {
       setLanguage(selectedValueLANG);
     } else {
-      setLanguage('prt')
+      setLanguage("prt");
     }
-  }
+  };
 
   return (
     <ImageBackground
@@ -39,60 +42,64 @@ const SettingsScreen = () => {
       style={styles.background}
     >
       <View style={styles.container}>
-      {language === "prt" && <Text style={styles.title}>Impostaçoes</Text>}
-      {language === "eng" && <Text style={styles.title}>Settings</Text>}
-      {language === "ita" && <Text style={styles.title}>Impostazioni</Text>}
+        {language === "prt" && <Text style={styles.title}>Impostaçoes</Text>}
+        {language === "eng" && <Text style={styles.title}>Settings</Text>}
+        {language === "ita" && <Text style={styles.title}>Impostazioni</Text>}
 
-<View style={styles.language}>
-{language === "prt" && <Text style={styles.setting}>Idioma</Text>}
-{language === "eng" && <Text style={styles.setting}>Language</Text>}
-{language === "ita" && <Text style={styles.setting}>Lingua</Text>}
-        <DropDownPicker
-          open={openLang}
-          value={valueLang}
-          items={[
-            { label: "Portugues", value: "prt" },
-            { label: "English", value: "eng" },
-            { label: "Italiano", value: "ita" },
-          ]}
-          setOpen={setOpenLang}
-          setValue={setValueLang}
-          onChangeValue={handleChangeValueLANG}
-          placeholder="Portugues"
-          style={{ borderColor: "white", borderBlockEndColor: "white" }}
-          textStyle={{ fontFamily: "Cocchin", fontSize: 16 }}
-          dropDownContainerStyle={{ borderColor: "white" }}
-        />
-</View>
+        <View style={styles.language}>
+          {language === "prt" && <Text style={styles.setting}>Idioma</Text>}
+          {language === "eng" && <Text style={styles.setting}>Language</Text>}
+          {language === "ita" && <Text style={styles.setting}>Lingua</Text>}
+          <DropDownPicker
+            open={openLang}
+            value={valueLang}
+            items={[
+              { label: "Portugues", value: "prt" },
+              { label: "English", value: "eng" },
+              { label: "Italiano", value: "ita" },
+            ]}
+            setOpen={setOpenLang}
+            setValue={setValueLang}
+            onChangeValue={handleChangeValueLANG}
+            placeholder="Portugues"
+            style={{ borderColor: "white", borderBlockEndColor: "white" }}
+            textStyle={{ fontFamily: "Cocchin", fontSize: 16 }}
+            dropDownContainerStyle={{ borderColor: "white" }}
+          />
+        </View>
 
-
-
-<View style={styles.hemisphere}>
-{language === "prt" && <Text style={styles.setting}>Emisferio</Text>}
-{language === "eng" && <Text style={styles.setting}>Hemisphere</Text>}
-{language === "ita" && <Text style={styles.setting}>Emisfero</Text>}
-        <DropDownPicker
-          open={openEmi}
-          value={valueEmi}
-          items={language==='prt' ? [
-            { label: "Emisferio Norte", value: "north" },
-            { label: "Emisferio Sul", value: "south" },
-          ] : language ==='eng' ? [
-            { label: "Northern Hemisphere", value: "north" },
-            { label: "Southern Hemisphere", value: "south" },
-          ] : [
-            { label: "Emisfero Boreale", value: "north" },
-            { label: "Emisfero Australe", value: "south" },
-          ]}
-          setOpen={setOpenEmi}
-          setValue={setValueEmi}
-          onChangeValue={handleChangeValueEMI}
-          placeholder="Emisferio"
-          containerStyle={{ borderColor: "white" }}
-          textStyle={{ fontFamily: "Cocchin", fontSize: 16 }}
-          style={{ borderColor: "white" }}
-          dropDownContainerStyle={{ borderColor: "white" }}
-        />
+        <View style={styles.hemisphere}>
+          {language === "prt" && <Text style={styles.setting}>Emisferio</Text>}
+          {language === "eng" && <Text style={styles.setting}>Hemisphere</Text>}
+          {language === "ita" && <Text style={styles.setting}>Emisfero</Text>}
+          <DropDownPicker
+            open={openEmi}
+            value={valueEmi}
+            items={
+              language === "prt"
+                ? [
+                    { label: "Emisferio Norte", value: "north" },
+                    { label: "Emisferio Sul", value: "south" },
+                  ]
+                : language === "eng"
+                ? [
+                    { label: "Northern Hemisphere", value: "north" },
+                    { label: "Southern Hemisphere", value: "south" },
+                  ]
+                : [
+                    { label: "Emisfero Boreale", value: "north" },
+                    { label: "Emisfero Australe", value: "south" },
+                  ]
+            }
+            setOpen={setOpenEmi}
+            setValue={setValueEmi}
+            onChangeValue={handleChangeValueEMI}
+            placeholder="Emisferio"
+            containerStyle={{ borderColor: "white" }}
+            textStyle={{ fontFamily: "Cocchin", fontSize: 16 }}
+            style={{ borderColor: "white" }}
+            dropDownContainerStyle={{ borderColor: "white" }}
+          />
         </View>
       </View>
     </ImageBackground>
@@ -109,23 +116,23 @@ const styles = StyleSheet.create({
   },
 
   hemisphere: {
-   alignItems: 'center',
-   bottom: '10%'
-  }, 
+    alignItems: "center",
+    bottom: "10%",
+  },
 
   language: {
-   alignItems: 'center',
-   bottom: '15%'
+    alignItems: "center",
+    bottom: "15%",
   },
 
   title: {
-    fontSize: 40,
-    bottom: '10%',
+    fontSize: android ? 35 : 40,
+    bottom: "10%",
     color: "rgb(30, 80, 130)",
     fontFamily: "CocchinBold",
   },
   setting: {
-    fontSize: 20,
+    fontSize: android ? 17 : 20,
     color: "rgb(30, 80, 130)",
     margin: 20,
     fontFamily: "CocchinBold",
@@ -136,7 +143,7 @@ const styles = StyleSheet.create({
     height: "70%",
     borderRadius: 30,
     width: "90%",
-    marginTop: "20%",
+    marginTop: mobile ? "20%" : "5%",
     margin: "auto",
     justifyContent: "space-around",
     alignItems: "center",

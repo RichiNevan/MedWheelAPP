@@ -22,14 +22,14 @@ const TabLayout = () => {
       <Tabs.Screen
         name="info"
         options={{
-          title: "Info",
+          title: "",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={
                 focused ? "information-circle" : "information-circle-outline"
               }
               color={color}
-              size={28}
+              size={32}
             />
           ),
         }}
@@ -37,7 +37,7 @@ const TabLayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Wheel",
+          title: "",
           tabBarIcon: ({ color, focused }) => (
             <WheelIcon style={styles.wheelIconActive} />
           ),
@@ -46,12 +46,12 @@ const TabLayout = () => {
       <Tabs.Screen
         name="settings"
         options={{
-          title: "Settings",
+          title: "",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={focused ? "settings" : "settings-outline"}
               color={color}
-              size={28}
+              size={30}
             />
             
           ),
@@ -66,8 +66,8 @@ export default TabLayout;
 
 const styles = StyleSheet.create({
   wheelIconActive: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     bottom: 20,
   },
 });

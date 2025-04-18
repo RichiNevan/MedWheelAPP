@@ -43,7 +43,12 @@ const Inverno = () => {
           <Text style={styles.title}>Luna dei Venti Forti</Text>
         )}
 
-        <View style={styles.imageView}></View>
+        <View style={styles.imageView}>
+                <Image
+                          style={styles.image}
+                          source={require("@/assets/images/lune/ventosfortes.png")}
+                        />
+                        </View>
 
         {language === "prt" && (
           <Text style={styles.testo}>
@@ -328,8 +333,9 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -341,25 +347,23 @@ const styles = StyleSheet.create({
     fontFamily: "Cocchin",
     color: "darkred",
     margin: 20,
-   
   },
   imageView: {
     flex: 1,
-    height: 300,
+    height: 360,
     width: 350,
     margin: "auto",
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "white",
     overflow: "hidden",
-    marginVertical: 30,
-    borderWidth: 1,
-    borderColor: "black",
-    borderRadius: 20
+    marginVertical: 10,
+    borderRadius: 20,
   },
 
   image: {
     resizeMode: "contain",
+    bottom: 290,
+    width: 350,
   },
   headerBg: {
     width: "100%",

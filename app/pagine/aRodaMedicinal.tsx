@@ -189,7 +189,6 @@ const Inverno = () => {
           </>
         )}
         {language === "eng" && (
-          <Text style={styles.testo}>
             <>
               <Text style={styles.testo}>
                 The Medicine Wheel is a Journey of Consciousness, which can lead
@@ -320,10 +319,8 @@ const Inverno = () => {
                 your Personal Universe.
               </Text>
             </>
-          </Text>
         )}
         {language === "ita" && (
-          <Text style={styles.testo}>
             <>
               <Text style={styles.testo}>
                 La Ruota Medicinale è un Viaggio di Consapevolezza, che può
@@ -392,7 +389,6 @@ const Inverno = () => {
                 />
               </View>
               <Text style={styles.testo}>
-                {" "}
                 {"\n"}
                 Nel simbolismo ancestrale, il cerchio è il simbolo dello spazio
                 infinito, senza inizio né fine, e quando viene diviso da una
@@ -459,7 +455,6 @@ const Inverno = () => {
                 diventa il tuo spazio personale, il tuo Universo Personale.
               </Text>
             </>
-          </Text>
         )}
       </ScrollView>
     </ImageBackground>
@@ -476,8 +471,9 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",

@@ -462,8 +462,9 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   image: {
     width: "100%",

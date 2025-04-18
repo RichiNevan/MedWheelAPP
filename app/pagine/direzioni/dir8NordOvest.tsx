@@ -140,8 +140,9 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -170,12 +171,12 @@ const styles = StyleSheet.create({
     height: 400,
   },
   headerBg: {
-    width: '100%',
-    height: '100%',
-    opacity: 0.95
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
   },
   header: {
-    borderBlockColor: 'white',
-   borderColor: 'white',
-  }
+    borderBlockColor: "white",
+    borderColor: "white",
+  },
 });

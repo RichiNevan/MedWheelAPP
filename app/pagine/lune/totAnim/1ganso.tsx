@@ -132,12 +132,13 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
-    marginBottom: 60
+    marginBottom: 60,
   },
   title: {
     textAlign: "center",
@@ -148,35 +149,33 @@ const styles = StyleSheet.create({
   },
   imageView: {
     flex: 1,
-    width: '95%',
-    margin: 'auto',
+    width: "95%",
+    margin: "auto",
     alignItems: "center",
     overflow: "hidden",
     marginVertical: 30,
-    borderColor: 'black',
+    borderColor: "black",
     borderWidth: 1,
   },
 
-  image: {
-   
-  },
+  image: {},
 
   imageView2: {
-    borderColor: 'black',
+    borderColor: "black",
     borderWidth: 1,
-    alignItems: 'center',
-    margin: 'auto',
+    alignItems: "center",
+    margin: "auto",
     width: 350,
-    overflow: 'hidden',
-    marginVertical: 20
+    overflow: "hidden",
+    marginVertical: 20,
   },
   headerBg: {
-    width: '100%',
-    height: '100%',
-    opacity: 0.95
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
   },
   header: {
-    borderBlockColor: 'white',
-   borderColor: 'white',
-  }
+    borderBlockColor: "white",
+    borderColor: "white",
+  },
 });

@@ -1,7 +1,11 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { View } from "react-native";
+import { View, Platform } from "react-native";
 import * as Font from 'expo-font'
 import { ActivityIndicator } from "react-native";
+
+export const mobile = ["ios", "android"].includes(Platform.OS);
+export const android = Platform.OS === "android";
+export const ios = Platform.OS === "ios";
 
 interface SettingsContextType {
     hemisphere: 'north' | 'south';

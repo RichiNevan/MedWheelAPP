@@ -12,22 +12,28 @@ import { useNavigation } from "expo-router";
 
 const Inverno = () => {
   const { language } = useSettings();
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   useEffect(() => {
     // Dynamically setting header options when this page is loaded
     navigation.setOptions({
-      title: '',
+      title: "",
       headerBackground: () => (
-        <ImageBackground source={require('@/assets/images/headerbg.jpg')}
-        style={styles.headerBg} />
+        <ImageBackground
+          source={require("@/assets/images/headerbg.jpg")}
+          style={styles.headerBg}
+        />
       ),
       headerStyle: styles.header,
-      headerTintColor: 'white',
-      headerBackTitle: language === 'prt' ? 'Voltar' : language === 'ita' ? 'Indietro' : 'Back'
+      headerTintColor: "white",
+      headerBackTitle:
+        language === "prt"
+          ? "Voltar"
+          : language === "ita"
+          ? "Indietro"
+          : "Back",
     });
   }, [navigation]);
-
 
   return (
     <ImageBackground
@@ -41,206 +47,271 @@ const Inverno = () => {
 
         {language === "prt" && (
           <>
-          <View style={styles.imageContainer}>
-          <Image style={styles.image} source={require('@/assets/images/altro/leo.jpg')} />
-          </View>
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.image}
+                source={require("@/assets/images/altro/leo.jpg")}
+              />
+            </View>
             <Text style={styles.testo}>
               Estudioso de xamanismo e condutor de cerimônias, ritos, grupos de
               estudo, cursos e oficinas de xamanismo desde 1991.{"\n"} Criador e
               condutor das Jornadas Xamânicas Voo da Águia, cerimonia de cura e
               autoconhecimento através dos ritos de passagens sazonais, tendo
               levado esse trabalho em todas as regiões brasileiras e em outros
-              países também, através do Movimento “Xamanismo Sem Fronteiras”.{"\n"}
-              Proprietário e editor do site www.xamanismo.com.br.{"\n"} Fundador e
-              Presidente do Centro Eclético da Fluente Luz Universal Céu da Lua
-              Cheia – Santo Daime.{"\n"} Embaixador Ancestral do Conselho Indígena
-              Internacional – México – Promovido pela UNESCO.{"\n"} Fundador e
-              Presidente da Aliança Internacional de Xamanismo Universal – IAUSH.{"\n"}
+              países também, através do Movimento “Xamanismo Sem Fronteiras”.
+              {"\n"}
+              Proprietário e editor do site www.xamanismo.com.br.{"\n"} Fundador
+              e Presidente do Centro Eclético da Fluente Luz Universal Céu da
+              Lua Cheia – Santo Daime.{"\n"} Embaixador Ancestral do Conselho
+              Indígena Internacional – México – Promovido pela UNESCO.{"\n"}{" "}
+              Fundador e Presidente da Aliança Internacional de Xamanismo
+              Universal – IAUSH.{"\n"}
               Fundador e Diretor do ESPAÇO – A Kiva Urbana – Centro de Estudos
               de Xamanismo Voo da Águia.{"\n"} Idealizador do EBX – Encontro
               Brasileiro de Xamanismo e o VMX – Virada Musical Xamânica.{"\n"}
               Terapeuta holístico, acupunturista Formado em locução e
-              radialismo, Mestre de Cerimonias e Contador de Histórias – SENAC.{"\n"}
-              Professor de comunicação verbal, técnicas de apresentações em
-              público.{"\n"} Personal Professional Coach e Master Practitioner em
-              Programação Neurolinguística Sistêmica.{"\n"} Palestrante e escritor dos
-              livros : O Voo da Águia e O Espírito Animal. {"\n"}{"\n"}Sou um estudioso de xamanismo dedicado a entrelaçar as
+              radialismo, Mestre de Cerimonias e Contador de Histórias – SENAC.
+              {"\n"}
+              Palestrante e escritor dos livros : O Voo da Águia e O Espírito
+              Animal. {"\n"}
+              {"\n"}Sou um estudioso de xamanismo dedicado a entrelaçar as
               sabedorias ancestrais com o conhecimento contemporâneo, criando um
               caminho que nos conduz ao bem-estar e à compreensão profunda dos
-              desafios da vida.{"\n"} Este portal é mais do que um espaço virtual; é
-              um convite para uma jornada espiritual, onde valorizo
+              desafios da vida.{"\n"} Este portal é mais do que um espaço
+              virtual; é um convite para uma jornada espiritual, onde valorizo
               profundamente a busca interior de cada um – uma busca que
-              considero sagrada.{"\n"} Minha trajetória no xamanismo é uma exploração
-              pessoal, longe de representar qualquer tradição específica. Meus
-              anos de pesquisa, iniciações e aplicação de conhecimentos
-              espirituais moldaram a forma como conduzo ritos e cerimônias, e
-              como interpreto as práticas xamânicas.{"\n"} A minha verdade encontra-se
-              na beleza da Criação Divina, um caminho mapeado nas pequenas
-              maravilhas da natureza – desde as plantas até as estrelas.{"\n"} A
-              sabedoria que compartilho aqui transformou minha vida e vi
-              transformar a de muitos outros.{"\n"} Convido você a refletir: se está
-              em busca de transformação, esta jornada pode ser também a sua.{"\n"}
-              Considero-me um “Bom Companheiro de Viagem”, apaixonado pela vida,
-              pela natureza, pelas pessoas e, acima de tudo, pelo “Caminho do
-              Amor” que encontro no Xamanismo Universal.{"\n"} A influência espiritual
-              começou cedo na minha vida, com uma mãe benzedeira e um pai médium
-              de Umbanda. {"\n"}Aos 11 anos, experiências iniciáticas e visões
-              espirituais já faziam parte do meu cotidiano.{"\n"} Minha iniciação
-              espiritual veio através do meu padrinho de batismo, Cidáo de
-              Xangô, um mestre que o Criador colocou em meu caminho. Minha
-              jornada é rica e diversificada, passando por escolas iniciáticas,
-              artes marciais, terapias alternativas, yoga, e estudos profundos
-              sobre ervas medicinais e aromaterapia.{"\n"} A sabedoria dos nativos
-              norte-americanos, os ensinamentos sobre a Roda Medicinal, e as
-              cerimônias da Tenda do Suor foram fundamentais em meu reencontro
-              com o Sagrado. Destaco também as experiências inesquecíveis com
-              xamãs no Peru e a imersão nas práticas da Igreja Nativa Americana.{"\n"}
-              O estudo das “Plantas de Poder” me levou ao Centro Eclético
-              Fluente Luz Universal – Santo Daime, onde atualmente conduzo
-              rituais.{"\n"} Cada passo deste caminho me ensinou a “Caminhar na
-              Beleza”. Convido você a se juntar a mim nesta jornada espiritual,
-              a explorar o “Caminho do Amor” através do xamanismo, e a descobrir
-              como esta sabedoria ancestral pode enriquecer e transformar sua
-              vida.{"\n"}{"\n"}Em 1990, fundei o “Movimento
-              Xamânico Universal”, um marco na minha jornada espiritual.{"\n"} Este
-              movimento ergue a bandeira do “Xamanismo Universal”, promovendo
-              alianças espirituais entre diversos sistemas de crenças.{"\n"} Ele se
-              baseia na sabedoria da Roda Medicinal dos nativos
-              norte-americanos, nos Ritos de Passagem do Calendário Sagrado e
-              outras praticas ancestrais, todos adaptados à contemporaneidade.{"\n"} O
-              princípio fundamental é a interconexão de todos na Família
-              Universal, reconhecendo que “Tudo é Sagrado”, e buscando a
-              harmonia com o universo, o amor incondicional, e o equilíbrio da
-              mente e do corpo.{"\n"}{"\n"}Desde
-              1992, dedico-me a apresentar este rico conhecimento por meio de
-              cursos, workshops, cerimônias, formações de multiplicadores,
-              jornadas e ritos.{"\n"} Dentre estes, as “Jornadas Xamânicas Voo da
-              Águia” se destacam como uma experiência profundamente
-              transformadora.{"\n"}{"\n"} Em 2010, iniciei o “Movimento Xamanismo Sem
-              Fronteiras”, expandindo nossa missão para além das fronteiras
-              nacionais.{"\n"} Esse movimento abraça a filosofia e as práticas do
-              xamanismo universal, promovendo a união de entidades e indivíduos
-              globalmente.{"\n"} Temos recebido convites de vários países, incluindo
-              Europa, América do Norte e do Sul, Caribe, e também o movimento
-              Xamanismo Brasil, levando a muitos Estados Brasileiros
-              estabelecendo um diálogo enriquecedor entre diversas culturas e
-              práticas espirituais.{"\n"}{"\n"}Em 2016, um passo significativo foi dado com a
-              criação da IAUSH (International Alliance Of The Universal
-              Shamanism). {"\n"}Esta aliança náo formalizada, é de coraçoes e
-              dedica-se à preservação, estudo e disseminação das práticas
-              xamânicas. {"\n"}A IAUSH enfrenta o desafio de resgatar e atualizar o
-              conhecimento ancestral xamânico, integrando-o à Medicina Acadêmica
-              e contribuindo para a saúde, autoconhecimento, e bem-estar.{"\n"} Além
-              disso, apoia movimentos ambientais e indígenas, tecendo uma rede
-              internacional de condutores e praticantes de xamanismo.{"\n"}{"\n"} Atualmente, lidero o ‘ESPAÇO – A KIVA
-              URBANA’ e o Centro de Estudos de Xamanismo Voo da Águia.{"\n"} Aqui,
-              compartilho cerimônias xamânicas e oficinas de trabalho, além de
-              grupos de estudos e jornadas.{"\n"} Sou também criador da Comunidade de
-              Xamanismo no Facebook
-              (https://www.facebook.com/xamanismo.com.br/), um espaço para
-              conectar e inspirar praticantes.{"\n"} O Centro forma multiplicadores da
-              metodologia “Roda de Estudos de Xamanismo Universal Voo da Águia”,
-              que desenvolvi para estudar e praticar o xamanismo universal no
-              dia-a-dia.{"\n"} Esses multiplicadores, agora espalhados pelo Brasil e
-              em vários países, atuam como facilitadores deste processo
-              transformador.{"\n"}{"\n"}Com grande orgulho, compartilho minhas contribuições ao
-              mundo literário do xamanismo. Em 1996, publiquei “O Voo da Águia”,
-              um livro que oferece uma iniciação aos mistérios e magia do
-              xamanismo, seguido por “O Espírito Animal” em 2000, ambos pela
-              Editora Roca.{"\n"} Recentemente, em 2023, lançamos uma terceira edição
-              atualizada de “O Voo da Águia” com a Editora Ajna, distribuída
-              também em Portugal pela Livraria Senda e na Espanha através da
-              Editora Cuantico.{"\n"} Além disso, estou ansioso pelo lançamento
-              previsto para 2024 de “O Espírito Animal”. Também tive a honra de
-              escrever a introdução para o livro “O Caminho do Xamã” de Michael
-              Harner, publicado pela Editora Goya.{"\n"}{"\n"}Em 2005, idealizei o Primeiro Encontro
-              Brasileiro de Xamanismo (EBX), um marco significativo que, após 13
-              anos, deu origem ao Segundo Encontro, agora um evento fixo no
-              calendário do xamanismo no Brasil.{"\n"}{"\n"}Em 2017, com o Céu da Lua Cheia e um grupo
-              de irmãos do caminho, criei o movimento musical “VMX – Virada
-              Musical Xamânica”. {"\n"}Este festival de canções de medicina,
-              celebrando um ponto de encontro espiritual, se espalhou para a
-              Europa e os Estados Unidos.{"\n"} Em julho de 2018, realizamos a
-              primeira Virada Musical Chamânica em Madrid, e temos planos para a
-              “Shamanic Musical Vigil” na Califórnia em 2019.{"\n"} Estes eventos são
-              uma extensão da Virada Musical Xamânica que começou em Itapecerica
-              da Serra, SP, no Sítio Lua Cheia.{"\n"}</Text>
+              considero sagrada.{"\n"} Minha trajetória no xamanismo é uma
+              exploração pessoal, longe de representar qualquer tradição
+              específica. Meus anos de pesquisa, iniciações e aplicação de
+              conhecimentos espirituais moldaram a forma como conduzo ritos e
+              cerimônias, e como interpreto as práticas xamânicas.{"\n"} A minha
+              verdade encontra-se na beleza da Criação Divina, um caminho
+              mapeado nas pequenas maravilhas da natureza – desde as plantas até
+              as estrelas.{"\n"} A sabedoria que compartilho aqui transformou
+              minha vida e vi transformar a de muitos outros.{"\n"} Convido você
+              a refletir: se está em busca de transformação, esta jornada pode
+              ser também a sua.{"\n"}
+            </Text>
 
-              <View style={styles.imageContainer}>
-                <Image style={styles.image} source={require('@/assets/images/altro/leo2.jpg')} />
-              </View>
-              <Text style={styles.testo}>
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.image}
+                source={require("@/assets/images/altro/leo2.jpg")}
+              />
+            </View>
+            <Text style={styles.testo}>
               {"\n"}
               Acredito firmemente que o verdadeiro poder reside dentro de cada
               um de nós, emanando do desenvolvimento de nossos dons e potenciais
-              internos.{"\n"} Este poder pode ser identificado como o Eu Superior,
-              Cristo Interno, Kundalini, Poder Mental, entre outros. O mais
-              importante é reconhecer e acessar a Centelha Divina inerente a
-              cada um de nós.{"\n"} Entendo que, independentemente do caminho
+              internos.{"\n"} Este poder pode ser identificado como o Eu
+              Superior, Cristo Interno, Kundalini, Poder Mental, entre outros. O
+              mais importante é reconhecer e acessar a Centelha Divina inerente
+              a cada um de nós.{"\n"} Entendo que, independentemente do caminho
               espiritual escolhido, é essencial confiar, ter fé e entregar-se
-              para alcançar a integração plena.{"\n"}O reconhecimento do Caminho da
-              Verdade emerge da expansão de nossa consciência, de nossas
-              experiências pessoais e de nossos relacionamentos.{"\n"} O Caminho do
-              Xamanismo Universal: Uma Visão Contemporânea Unificação das
+              para alcançar a integração plena.{"\n"}O reconhecimento do Caminho
+              da Verdade emerge da expansão de nossa consciência, de nossas
+              experiências pessoais e de nossos relacionamentos.{"\n"} O Caminho
+              do Xamanismo Universal: Uma Visão Contemporânea Unificação das
               Crenças e a Linguagem do Amor Universal Abraço a bandeira do
               “Xamanismo Universal”, um caminho que permite alianças espirituais
               entre diversos sistemas de crenças.{"\n"} Honro e valorizo os
               ensinamentos de cada linha que cruzei, tecendo-os juntos numa
-              linguagem unificada de amor universal.{"\n"} Este é o coração de um
-              “novo xamanismo”, adaptado e relevante para os dias atuais, que
-              celebra a diversidade e a unidade.{"\n"}{"\n"}Central para
-              minha filosofia é o entendimento de que “Tudo é Sagrado”.{"\n"} Esta
-              percepção nos guia à unificação na corrente universal da beleza,
-              da paz, do amor incondicional e do bem-estar físico e mental.{"\n"}
+              linguagem unificada de amor universal.{"\n"} Este é o coração de
+              um “novo xamanismo”, adaptado e relevante para os dias atuais, que
+              celebra a diversidade e a unidade.{"\n"}
+              {"\n"}Central para minha filosofia é o entendimento de que “Tudo é
+              Sagrado”.{"\n"} Esta percepção nos guia à unificação na corrente
+              universal da beleza, da paz, do amor incondicional e do bem-estar
+              físico e mental.{"\n"}
               Reconhecer o sagrado em tudo é o primeiro passo para uma vida de
-              harmonia e conexão profunda. {"\n"}{"\n"}
-              Creio firmemente que a magia reside dentro de cada um de nós. É a
-              busca interior que nos permite compreender e transformar os
-              processos que retardam nosso progresso, guiando-nos no “Caminho da
-              Beleza”. {"\n"}Esta jornada de autoconhecimento é essencial para a
-              realização espiritual e pessoal.{"\n"}{"\n"}Mais importante do que a prática é viver em estado de
-              ritual constante, mantendo uma consciência plena em todas as
-              ações.{"\n"}Cada passo que damos deve ser uma expressão de amor, não só
-              para nós mesmos, mas para a humanidade e toda a criação.{"\n"} É uma
-              jornada de viver com propósito e intenção, honrando a vida em
-              todas as suas formas. {"\n"}{"\n"}Minha missão é
-              inspirar as pessoas a se conhecerem melhor, a buscarem a
-              felicidade, a se conectarem com o Sagrado e a viverem em harmonia
-              com todas as formas de vida.{"\n"} Aspiro a guiar os outros no caminho
-              da autoexploração, ajudando-os a encontrar equilíbrio e paz em
-              suas relações com todos os reinos da natureza e do espírito. {"\n"}{"\n"}Nos
-              anos 90 fundei o IEC – Instituto Para a Expansáo da Consciencia,
-              que desenvolvia formaçoes, cursos e atendimentos em terapias
-              complementares e praticas ancestrais. {"\n"}{"\n"}Reconhecido pelo
-              Conselho Indígena Internacional no México e promovido pela UNESCO,
-              refletindo meu compromisso com as tradições e culturas indígenas.
-              {"\n"}{"\n"} Pioneiro na realização de
-              cerimônias de passagem das estações, como Solstícios e Equinócios,
-              e em Festivais de Fogo, celebrando e honrando a natureza e seus
-              ciclos. {"\n"}{"\n"} Certificado como
-              Personal Professional Coach pela International Coaching Council e
-              como Master Practitioner em Programação Neurolinguística Sistêmica
-              pela PAHC. Terapeuta Holístico e Acupunturista: Combinando
-              técnicas tradicionais e modernas para promover a saúde e o
-              bem-estar. Comunicação e Educação: Formado em Locução e Radialismo
-              pelo SENAC (DRT 27844/SP) e em dublagem pela Lypsing.{"\n"}
-           Palestrante e conferencista: Compartilho minha sabedoria
-              e experiências através de palestras, enriquecendo o conhecimento e
-              a compreensão do público sobre o xamanismo e desenvolvimento
-              pessoal.{"\n"}Gestão de Negócios: Com formação em Gestão de Negócios
-              pela Universidade Braz Cubas, integrando habilidades de liderança
-              e administração em minhas iniciativas. Especialista em
-              Comunicação: Exerci o cargo de Gerente de Marketing Regional numa
-              importante multinacional americana, Formado em Locução e
-              Radialismo pelo SENAC (DRT 27844/SP) e em dublagem pela Lypsing.{"\n"}
-              Além disso, sou Professor de Comunicação Verbal e Técnicas de
-              Oratória, capacitando indivíduos a aprimorarem suas habilidades de
-              fala e apresentação. Mestre de Cerimônias e Contador de Histórias.
+              harmonia e conexão profunda. {"\n"}
+              {"\n"}
             </Text>
           </>
         )}
-        {language === "eng" && <Text style={styles.testo}></Text>}
-        {language === "ita" && <Text style={styles.testo}></Text>}
+        {language === "eng" && (
+          <>
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.image}
+                source={require("@/assets/images/altro/leo.jpg")}
+              />
+            </View>
+            <Text style={styles.testo}>
+              Scholar of shamanism and conductor of ceremonies, rites, study
+              groups, courses, and shamanism workshops since 1991.{"\n"} Creator
+              and conductor of the Shamanic Journeys Eagle Flight, a healing and
+              self-knowledge ceremony through seasonal rites of passage, having
+              taken this work to all regions of Brazil and other countries as
+              well, through the "Shamanism Without Borders" Movement.{"\n"}{" "}
+              Owner and editor of the website www.xamanismo.com.br.{"\n"}
+              Founder and President of the Eclectic Center of Fluent Universal
+              Light Sky of the Full Moon – Santo Daime.{"\n"}
+              Ancestral Ambassador of the International Indigenous Council –
+              Mexico – Promoted by UNESCO.{"\n"}
+              Founder and President of the International Alliance of Universal
+              Shamanism – IAUSH.{"\n"}
+              Founder and Director of ESPAÇO – The Urban Kiva – Center for
+              Shamanism Studies Eagle Flight.{"\n"}
+              Creator of EBX – Brazilian Shamanism Meeting and VMX – Shamanic
+              Musical Turn.{"\n"}
+              Holistic therapist, acupuncturist. Trained in voice work and
+              radio, Master of Ceremonies, and Storyteller – SENAC.{"\n"}
+              Speaker and author of the books: The Eagle Flight and The Animal
+              Spirit. {"\n"}
+              {"\n"}I am a scholar of shamanism dedicated to intertwining
+              ancestral wisdom with contemporary knowledge, creating a path that
+              leads us to well-being and a deep understanding of life's
+              challenges.{"\n"}
+              This portal is more than a virtual space; it is an invitation to a
+              spiritual journey, where I deeply value each individual's inner
+              search – a search I consider sacred.{"\n"}
+              My journey in shamanism is a personal exploration, far from
+              representing any specific tradition. My years of research,
+              initiations, and the application of spiritual knowledge have
+              shaped the way I conduct rites and ceremonies, and how I interpret
+              shamanic practices.{"\n"}
+              My truth is found in the beauty of Divine Creation, a path mapped
+              in the small wonders of nature – from plants to stars.
+              {"\n"}
+              The wisdom I share here has transformed my life, and I have seen
+              it transform many others.{"\n"}I invite you to reflect: if you are
+              seeking transformation, this journey could also be yours.
+              {"\n"}
+            </Text>
+
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.image}
+                source={require("@/assets/images/altro/leo2.jpg")}
+              />
+            </View>
+            <Text style={styles.testo}>
+              {"\n"}I firmly believe that true power resides within each of us,
+              emanating from the development of our gifts and inner potentials.
+              {"\n"}
+              This power can be identified as the Higher Self, Inner Christ,
+              Kundalini, Mental Power, among others. The most important thing is
+              to recognize and access the Divine Spark inherent in each of us.
+              {"\n"}I understand that, regardless of the spiritual path chosen,
+              it is essential to trust, have faith, and surrender to achieve
+              full integration.{"\n"}
+              The recognition of the Path of Truth emerges from the expansion of
+              our consciousness, our personal experiences, and our
+              relationships.{"\n"}
+              The Path of Universal Shamanism: A Contemporary Vision Unification
+              of Beliefs and the Language of Universal Love. I embrace the
+              banner of “Universal Shamanism,” a path that allows spiritual
+              alliances between different belief systems.{"\n"}I honor and value
+              the teachings of each tradition I have crossed, weaving them
+              together into a unified language of universal love.
+              {"\n"}
+              This is the heart of a “new shamanism,” adapted and relevant to
+              the present day, which celebrates diversity and unity.{"\n"}
+              {"\n"}
+              Central to my philosophy is the understanding that “Everything is
+              Sacred.”{"\n"}
+              This perception guides us to unification in the universal current
+              of beauty, peace, unconditional love, and physical and mental
+              well-being.{"\n"}
+              Recognizing the sacred in everything is the first step towards a
+              life of harmony and deep connection. {"\n"}
+              {"\n"}
+            </Text>
+          </>
+        )}
+        {language === "ita" && (
+          <>
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.image}
+                source={require("@/assets/images/altro/leo.jpg")}
+              />
+            </View>
+            <Text style={styles.testo}>
+              Studioso di sciamanesimo e conduttore di cerimonie, riti, gruppi
+              di studio, corsi e workshop di sciamanesimo dal 1991.{"\n"}
+              Creatore e conduttore delle Jornadas Xamânicas Voo da Águia,
+              cerimonia di guarigione e autoconoscenza attraverso i riti di
+              passaggio stagionali, avendo portato questo lavoro in tutte le
+              regioni brasiliane e anche in altri paesi, tramite il Movimento
+              “Sciamanesimo Senza Frontiere”.{"\n"} Proprietario ed editore del
+              sito www.xamanismo.com.br.{"\n"} Fondatore e Presidente del Centro
+              Eclettico della Fluente Luce Universale Cielo della Luna Piena –
+              Santo Daime.{"\n"}
+              Ambasciatore Ancestrale del Consiglio Indigeno Internazionale –
+              Messico – Promosso dall'UNESCO.{"\n"} Fondatore e Presidente
+              dell'Alleanza Internazionale di Sciamanesimo Universale – IAUSH.
+              {"\n"} Fondatore e Direttore di ESPAÇO – La Kiva Urbana – Centro
+              di Studi Sciamanici Voo da Águia.{"\n"} Creatore dell'EBX –
+              Incontro Brasiliano di Sciamanesimo e del VMX – Virada Musical
+              Xamânica.{"\n"}
+              Terapeuta olistico, agopuntore. Formato in tecnica vocale e
+              radiofonica, Maestro di Cerimonie e Raccontatore di Storie –
+              SENAC.{"\n"} Palestrante e autore dei libri: Il Volo dell'Aquila e
+              Lo Spirito Animale. {"\n"}
+              {"\n"} Sono uno studioso di sciamanesimo dedicato a intrecciare le
+              saggezze ancestrali con le conoscenze contemporanee, creando un
+              cammino che ci conduce al benessere e alla comprensione profonda
+              delle sfide della vita.{"\n"} Questo portale è più di uno spazio
+              virtuale; è un invito a un viaggio spirituale, dove valorizzo
+              profondamente la ricerca interiore di ciascuno – una ricerca che
+              considero sacra.{"\n"} Il mio cammino nello sciamanesimo è
+              un'esplorazione personale, lontano dal rappresentare qualsiasi
+              tradizione specifica. I miei anni di ricerca, iniziazioni e
+              applicazione delle conoscenze spirituali hanno plasmato il modo in
+              cui conduco riti e cerimonie, e come interpreto le pratiche
+              sciamaniche.{"\n"} La mia verità si trova nella bellezza della
+              Creazione Divina, un cammino tracciato nelle piccole meraviglie
+              della natura – dalle piante alle stelle.{"\n"}
+              La saggezza che condivido qui ha trasformato la mia vita, e l'ho
+              vista trasformare quella di molti altri.{"\n"} Ti invito a
+              riflettere: se sei alla ricerca di trasformazione, questo viaggio
+              potrebbe essere anche il tuo.{"\n"}
+            </Text>
+
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.image}
+                source={require("@/assets/images/altro/leo2.jpg")}
+              />
+            </View>
+            <Text style={styles.testo}>
+              {"\n"}
+              Credo fermamente che il vero potere risieda dentro ciascuno di
+              noi, emanando dallo sviluppo dei nostri doni e potenziali
+              interiori.{"\n"} Questo potere può essere identificato come il Sé
+              Superiore, Cristo Interno, Kundalini, Potere Mentale, tra gli
+              altri. La cosa più importante è riconoscere e accedere alla
+              Scintilla Divina inerente a ciascuno di noi.{"\n"} Comprendo che,
+              indipendentemente dal cammino spirituale scelto, è essenziale
+              fidarsi, avere fede e abbandonarsi per raggiungere l'integrazione
+              completa.{"\n"} Il riconoscimento del Cammino della Verità emerge
+              dall'espansione della nostra coscienza, delle nostre esperienze
+              personali e delle nostre relazioni.
+              {"\n"} Il Cammino dello Sciamanesimo Universale: Una Visione
+              Contemporanea Unificazione delle Credenze e il Linguaggio
+              dell'Amore Universale. Abbraccio la bandiera del “Sciamanesimo
+              Universale”, un cammino che permette alleanze spirituali tra
+              diversi sistemi di credenze.{"\n"} Onoro e valorizzo gli
+              insegnamenti di ogni tradizione che ho incrociato, intrecciandoli
+              insieme in un linguaggio unificato di amore universale.{"\n"}{" "}
+              Questo è il cuore di un “nuovo sciamanesimo”, adattato e
+              pertinente ai giorni nostri, che celebra la diversità e l'unità.
+              {"\n"}
+              {"\n"}
+              Centrale nella mia filosofia è la comprensione che “Tutto è
+              Sacro.”{"\n"}
+              Questa percezione ci guida verso l'unificazione nella corrente
+              universale della bellezza, della pace, dell'amore incondizionato e
+              del benessere fisico e mentale.{"\n"}
+              Riconoscere il sacro in tutto è il primo passo verso una vita di
+              armonia e connessione profonda. {"\n"}
+              {"\n"}
+            </Text>
+          </>
+        )}
       </ScrollView>
     </ImageBackground>
   );
@@ -256,35 +327,38 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
+    marginBottom: 60,
   },
   title: {
     textAlign: "center",
     fontSize: 40,
     fontFamily: "Cocchin",
     color: "darkred",
+    margin: 20,
   },
   image: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'contain',
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
   },
   imageContainer: {
     position: "relative",
-    width: '100%',
+    width: "100%",
     height: 250,
   },
   headerBg: {
-    width: '100%',
-    height: '100%',
-    opacity: 0.95
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
   },
   header: {
-    borderBlockColor: 'white',
-   borderColor: 'white',
-  }
+    borderBlockColor: "white",
+    borderColor: "white",
+  },
 });

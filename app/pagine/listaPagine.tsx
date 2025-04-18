@@ -4,11 +4,13 @@ import {
   View,
   ScrollView,
   ImageBackground,
-  TouchableOpacity
 } from "react-native";
 import React, { useEffect } from "react";
 import { useSettings } from "../SettingsContext";
 import { useRouter, useNavigation } from "expo-router";
+import { android } from "../SettingsContext";
+import { TouchableOpacity, GestureHandlerRootView } from "react-native-gesture-handler";
+
 
 
 
@@ -24,6 +26,7 @@ type routingProps = {
 }
 
 const ListaPagine = () => {
+  
   const { language } = useSettings();
   const navigation = useNavigation()
 
@@ -62,6 +65,7 @@ const ListaPagine = () => {
 
 
   return (
+    <GestureHandlerRootView>
     <ImageBackground
       style={styles.background}
       source={require("@/assets/images/background.jpg")}
@@ -155,7 +159,7 @@ const ListaPagine = () => {
         <CustomLink prt='Crisocola' eng='Chrysocolla' ita='Crisocolla' link="../pagine/lune/totMin/5crisocola" />
         <CustomLink prt='Agata Musgosa' eng='Moss Agate' ita='Agata Muschiata' link="../pagine/lune/totMin/6agata" />
         <CustomLink prt='Agata Cornalina' eng='Cornalline Agate' ita='Corniola' link="../pagine/lune/totMin/7agatacornalina" />
-        <CustomLink prt='Ferro' eng='Iron' ita='Ferro' link="../pagine/lune/totMin/8ferro" />
+        <CustomLink prt='Ferro e Granada' eng='Iron and Granade' ita='Ferro e Granato' link="../pagine/lune/totMin/8ferro" />
         <CustomLink prt='Ametista' eng='Amethyst' ita="Ametista" link="../pagine/lune/totMin/9ametista" />
         <CustomLink prt='Jaspe' eng='Jasper' ita='Diaspro' link="../pagine/lune/totMin/10jaspe" />
         <CustomLink prt='Malaquita' eng='Malaquite' ita='Malachite' link="../pagine/lune/totMin/11malaquita" />
@@ -177,10 +181,14 @@ const ListaPagine = () => {
         <CustomLink prt='Marrom' eng='Brown' ita='Marrone' link="../pagine/lune/totCol/10marrom" />
         <CustomLink prt='Laranja' eng='Orange' ita='Arancione' link="../pagine/lune/totCol/11laranja" />
         <CustomLink prt='Preta' eng='Black' ita='Nero' link="../pagine/lune/totCol/12preta" />
+      
+        <Text style={styles.testo}>~</Text>
       </ScrollView>
 
     </ImageBackground>
+    </GestureHandlerRootView>
   );
+  
 };
 
 export default ListaPagine;
@@ -199,19 +207,21 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
-    marginBottom: 65,
-    padding: 10
+    marginBottom: 0,
+    padding: 10,
+    paddingBottom: 20
   },
   title: {
     textAlign: "center",
     fontSize: 40,
     fontFamily: "Cocchin",
     color: "darkred",
+    margin: 20,
   },
   link: {
     fontSize: 20,
     textDecorationLine: "underline",
-    fontFamily: "cochin",
+    fontFamily: android ? "Cocchin" : "cochin",
     color: "rgb(0, 110, 100)",
   },
   headerBg: {

@@ -36,3 +36,8 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+# Local Netlify folder
+.netlify
+/ios
+/android

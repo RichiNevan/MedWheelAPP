@@ -5,14 +5,22 @@ import {
   ScrollView,
   ImageBackground,
   Image,
+  Modal,
+  TouchableOpacity,
+  Pressable,
 } from "react-native";
-import React, { useEffect } from "react";
+import { Ionicons } from "@expo/vector-icons";
+import React, { useState, useEffect } from "react";
 import { useSettings } from "../SettingsContext";
 import { useNavigation } from "expo-router";
+import WebView from "react-native-webview";
+import { android } from "../SettingsContext";
+
 
 const Support = () => {
   const { language } = useSettings();
   const navigation = useNavigation();
+  const [webviewVisible, setWebviewVisible] = useState(false);
 
   useEffect(() => {
     // Dynamically setting header options when this page is loaded
@@ -66,6 +74,47 @@ const Support = () => {
             più tempo ed energie saranno dedicati a questo progetto!
           </Text>
         )}
+        <TouchableOpacity
+          style={styles.donateBut}
+          onPress={() => setWebviewVisible(true)}
+        >
+          <Image
+            source={require("@/assets/images/paypalGold.png")}
+            style={{ width: 170, height: 55, borderRadius: 5 }}
+          />
+          {/* <Ionicons name="logo-paypal" size={24} color="black" />
+          <Text>Donate with PayPal</Text> */}
+        </TouchableOpacity>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={webviewVisible}
+          onRequestClose={() => {
+            setWebviewVisible(!webviewVisible);
+          }}
+        >
+          <View style={styles.modalBg} />
+          <View style={styles.container}>
+            <Pressable
+              style={styles.closeBut}
+              onPress={() => setWebviewVisible(false)}
+            >
+              <Ionicons name="close" color={"darkred"} size={30} />
+            </Pressable>
+            <WebView
+              source={{
+                uri: "https://www.paypal.com/donate/?hosted_button_id=GDFA8778TZHUS",
+              }}
+              style={{ flex: 1, backgroundColor: "white", height: 400, width: 350 }}
+              onLoadStart={() => console.log("WebView loading...")}
+              onLoadEnd={() => console.log("WebView loaded.")}
+              onError={(syntheticEvent) => {
+                const { nativeEvent } = syntheticEvent;
+                console.warn("WebView error: ", nativeEvent);
+              }}
+            />
+          </View>
+        </Modal>
       </ScrollView>
     </ImageBackground>
   );
@@ -83,15 +132,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 17,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
   },
   title: {
     textAlign: "center",
-    fontSize: 40,
+    fontSize: android ? 30 : 40,
     fontFamily: "Cocchin",
     color: "darkred",
+    margin: 20
   },
   headerBg: {
     width: "100%",
@@ -102,4 +153,54 @@ const styles = StyleSheet.create({
     borderBlockColor: "white",
     borderColor: "white",
   },
+  container: {
+    flex: 1,
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    height: '90%',
+    position: "absolute",
+    top: 30,
+    width: "95%",
+    overflow: "hidden",
+    borderWidth: 1.5,
+    borderColor: "darkred",
+    alignSelf: "center",
+    marginBottom: 20,
+    zIndex: 6,
+  },
+  donateBut: {
+    borderRadius: 5,
+    margin: 20,
+    width: 200,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 50,
+    alignSelf: "center",
+  },
+  closeBut: {
+    position: "absolute",
+    right: 5,
+    top: 5,
+    width: 30,
+    height: 30,
+    zIndex: 6,
+  },
+  modalBg: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    zIndex: 5,
+    borderRadius: 10,
+    width: "100%",
+    height: "100%",
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1,
+  }
 });

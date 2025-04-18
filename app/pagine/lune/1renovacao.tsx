@@ -174,8 +174,9 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -187,7 +188,6 @@ const styles = StyleSheet.create({
     fontFamily: "Cocchin",
     color: "darkred",
     margin: 20,
-   
   },
   imageView: {
     flex: 1,
@@ -198,13 +198,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     overflow: "hidden",
     marginVertical: 10,
-    borderRadius: 20
+    borderRadius: 20,
   },
 
   image: {
     resizeMode: "contain",
     bottom: 290,
-    width: 350
+    width: 350,
   },
   headerBg: {
     width: "100%",

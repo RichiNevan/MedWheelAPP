@@ -4,8 +4,8 @@
     "slug": "MedWheel",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/images/wheelicon.png",
+    "scheme": "com.medwheel.app",
     "assetBundlePatterns": [
       "assets/fonts/*"
     ],
@@ -13,14 +13,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.richinevan.MedWheel"
+      "bundleIdentifier": "com.medwheel.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.richinevan.MedWheel"
+      "package": "com.medwheel.app"
     },
     "web": {
       "bundler": "metro",

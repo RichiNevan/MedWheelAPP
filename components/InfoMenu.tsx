@@ -2,7 +2,7 @@ import { Modal, Pressable, StyleSheet, View, Text, TouchableOpacity } from "reac
 import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Seasons } from "./Seasons";
-import { useSettings } from "@/app/SettingsContext";
+import { android, useSettings } from "@/app/SettingsContext";
 import { Link } from "expo-router";
 import { useRouter } from "expo-router";
 
@@ -64,11 +64,11 @@ const InfoMenu: React.FC<MenuProps> = ({ onClose, isVisible }) => {
           <View style={styles.info}>
             <View style={styles.links}>
             <CustomLink prt='O que è a Roda Medicinal?' eng='What is the Medicine Wheel' ita="Cos'è la Ruota Medicinale?" link="../pagine/aRodaMedicinal" />
+            <CustomLink prt='A Estrutura da Roda' eng="The Wheel's Structure" ita='La struttura della Ruota' link="../pagine/estruturaRoda" />
             <CustomLink prt='Porque a escolha do emisferio?' eng='Why selecting the hemisphere?' ita="Perchè la scelta dell'emisfero?" link="../pagine/hemisferios" />
             <CustomLink prt='Quem Somos?' eng='Who are we?' ita='Chi siamo?' link="../pagine/quemSomos" />
-            <CustomLink prt='Bibliografia' eng='Bibliography' ita='Bibliografia' link="../pagine/bibliografia" />
-            <CustomLink prt='A Estrutura da Roda' eng="The Wheel's Structure" ita='La struttura della Ruota' link="../pagine/estruturaRoda" />
             <CustomLink prt='Suporte-nos!' eng='Support Us!' ita='Supportaci!' link="../pagine/suportenos" />
+            <CustomLink prt='Bibliografia' eng='Bibliography' ita='Bibliografia' link="../pagine/bibliografia" />
             <CustomLink prt='Contatos' eng='Contacts' ita='Contatti' link="../pagine/contatos" />
             <CustomLink prt='Lista Paginas' eng='Pages List' ita='Lista Pagine' link="../pagine/listaPagine" />
             </View>
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     margin: 10,
     textDecorationLine: "underline",
     color: "darkgreen",
-    fontFamily: "Cochin",
+    fontFamily: android ? "Cocchin" : "cochin",
     fontSize: 16,
   },
   links: {

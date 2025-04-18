@@ -145,12 +145,13 @@ const styles = StyleSheet.create({
   testo: {
     margin: 15,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 23,
+    fontFamily: "Cocchin",
   },
   scrollView: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",
-    marginBottom: 60
+    marginBottom: 60,
   },
   title: {
     textAlign: "center",
@@ -173,11 +174,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "black",
   },
-subTitle: {
-  textAlign: 'center',
-  fontStyle: 'italic',
-  fontSize: 12
-},
+  subTitle: {
+    textAlign: "center",
+    fontStyle: "italic",
+    fontSize: 12,
+  },
 
   image: {
     height: "100%",
