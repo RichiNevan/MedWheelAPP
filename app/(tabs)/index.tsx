@@ -1,43 +1,80 @@
 import { Text, View, Image, StyleSheet } from "react-native";
 import { Link } from "expo-router";
 import { ImageBackground } from "react-native";
-import TheWheelPRT from "@/components/TheWheelPRT"
+import TheWheelPRT from "@/components/TheWheelPRT";
 import TheWheelENG from "@/components/TheWheelENG";
 import TheWheelITA from "@/components/TheWheelITA";
 import MenuButton from "@/components/MenuButton";
 import { useState } from "react";
 import WheelMenu from "@/components/WheelMenu";
 import { useSettings } from "../SettingsContext";
+import * as SplashScreen from "expo-splash-screen";
+import ReanimatedSplash from "./components/ReanimatedSplash";
+
+SplashScreen.preventAutoHideAsync(); // Keep native splash on until ready
 
 export default function Index() {
+  const [isAppReady, setIsAppReady] = useState(false);
+  const [showAnimatedSplash, setShowAnimatedSplash] = useState(true);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
-  const {language} = useSettings( )
+  const { language } = useSettings();
+
+  useEffect(() => {
+    const prepare = async () => {
+      try {
+        // Simulate loading (assets, auth, etc.)
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+      } catch (err) {
+        console.warn(err);
+      } finally {
+        setIsAppReady(true);
+      }
+    };
+    prepare();
+  }, []);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (isAppReady) {
+      await SplashScreen.hideAsync(); // Hide native splash
+    }
+  }, [isAppReady]);
 
   function ToggleMenu() {
     setMenuVisible(!menuVisible);
   }
 
   return (
-    <ImageBackground
-      source={require("@/assets/images/background.jpg")}
-      style={styles.background}
-    >
-      <View style={styles.welcome}>
-        {language === 'prt' && <TheWheelPRT />}
-        {language === 'eng' && <TheWheelENG />}
-        {language === 'ita' && <TheWheelITA />}
-        
-        <View style={styles.bookIcon}>
-          <MenuButton onPress={ToggleMenu} />
+    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      {showAnimatedSplash && isAppReady && (
+        <ReanimatedSplash onAnimationEnd={() => setShowAnimatedSplash(false)} />
+      )}
+
+      {isAppReady && !showAnimatedSplash && (
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Text>Main App Content</Text>
+          <ImageBackground
+            source={require("@/assets/images/background.jpg")}
+            style={styles.background}
+          >
+            <View style={styles.welcome}>
+              {language === "prt" && <TheWheelPRT />}
+              {language === "eng" && <TheWheelENG />}
+              {language === "ita" && <TheWheelITA />}
+
+              <View style={styles.bookIcon}>
+                <MenuButton onPress={ToggleMenu} />
+              </View>
+
+              {menuVisible && (
+                <WheelMenu isVisible={menuVisible} onClose={ToggleMenu} />
+              )}
+            </View>
+          </ImageBackground>
         </View>
-   
-          {menuVisible && 
-          <WheelMenu 
-          isVisible={menuVisible}
-          onClose={ToggleMenu}/>}
-          
-      </View>
-    </ImageBackground>
+      )}
+    </View>
   );
 }
 
@@ -59,6 +96,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 100,
     zIndex: 2,
-    elevation: 2
+    elevation: 2,
   },
 });
