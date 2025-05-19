@@ -4,7 +4,7 @@
     "slug": "MedWheel",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/wheelicon.png",
+    "icon": "./assets/images/officialIcon.png",
     "scheme": "com.medwheel.app",
     "assetBundlePatterns": [
       "assets/fonts/*"

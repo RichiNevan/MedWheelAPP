@@ -10,7 +10,7 @@ import WheelMenu from "@/components/WheelMenu";
 import { useSettings } from "../SettingsContext";
 import * as SplashScreen from "expo-splash-screen";
 
-// SplashScreen.preventAutoHideAsync(); // Keep native splash on until ready
+SplashScreen.preventAutoHideAsync(); // Keep native splash on until ready
 
 SplashScreen.setOptions({
   duration: 1000,
