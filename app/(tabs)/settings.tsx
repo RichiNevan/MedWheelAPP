@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DropDown from "@/components/DropDown";
 import DropDownPicker from "react-native-dropdown-picker";
 import { useSettings } from "../SettingsContext";
 import { mobile, android, ios } from "../SettingsContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SettingsScreen = () => {
-  const { hemisphere, language, setHemisphere, setLanguage } = useSettings();
+  const { hemisphere, language, setHemisphere, setLanguage, theme, bgDark, bgLight } = useSettings();
 
   const [openEmi, setOpenEmi] = useState(false);
   const [openLang, setOpenLang] = useState(false);
@@ -19,18 +20,24 @@ const SettingsScreen = () => {
     { label: "Italiano", value: "ita" },
   ]);
 
-  const handleChangeValueEMI = (selectedValue: "north" | "south" | null) => {
-    if (selectedValue !== null) {
-      setHemisphere(selectedValue);
-    } else {
-      setHemisphere("south");
-    }
+  
+
+  
+  const handleChangeValueEMI = async (
+    selectedValue: "north" | "south" | null
+  ) => {
+    //console.log("handleChangeValueEMI called with:", selectedValue);
+    const valueToStore = selectedValue ?? "south";
+    setHemisphere(valueToStore);
+    await AsyncStorage.setItem("hemisphere", valueToStore);
   };
-  const handleChangeValueLANG = (
+
+  const handleChangeValueLANG = async (
     selectedValueLANG: "prt" | "eng" | "ita" | null
   ) => {
     if (selectedValueLANG !== null) {
       setLanguage(selectedValueLANG);
+      await AsyncStorage.setItem("language", selectedValueLANG);
     } else {
       setLanguage("prt");
     }
@@ -38,7 +45,7 @@ const SettingsScreen = () => {
 
   return (
     <ImageBackground
-      source={require("@/assets/images/background.jpg")}
+      source={theme === "dark" ? bgDark : bgLight}
       style={styles.background}
     >
       <View style={styles.container}>

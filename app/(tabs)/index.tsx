@@ -5,77 +5,83 @@ import TheWheelPRT from "@/components/TheWheelPRT";
 import TheWheelENG from "@/components/TheWheelENG";
 import TheWheelITA from "@/components/TheWheelITA";
 import MenuButton from "@/components/MenuButton";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import WheelMenu from "@/components/WheelMenu";
 import { useSettings } from "../SettingsContext";
 import * as SplashScreen from "expo-splash-screen";
-import ReanimatedSplash from "./components/ReanimatedSplash";
 
-SplashScreen.preventAutoHideAsync(); // Keep native splash on until ready
+// SplashScreen.preventAutoHideAsync(); // Keep native splash on until ready
+
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
 
 export default function Index() {
-  const [isAppReady, setIsAppReady] = useState(false);
-  const [showAnimatedSplash, setShowAnimatedSplash] = useState(true);
+  const [appIsReady, setAppIsReady] = useState(true);
+  //const [showAnimatedSplash, setShowAnimatedSplash] = useState(true);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
-  const { language } = useSettings();
+  const { language, bgDark, bgLight, theme } = useSettings();
+
+  // useEffect(() => {
+  //       setAppIsReady(true);
+  // }, []);
 
   useEffect(() => {
-    const prepare = async () => {
-      try {
-        // Simulate loading (assets, auth, etc.)
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-      } catch (err) {
-        console.warn(err);
-      } finally {
-        setIsAppReady(true);
-      }
-    };
+    async function prepare() {
+      // Do your loading stuff
+      await SplashScreen.hideAsync(); // This is necessary
+    }
     prepare();
   }, []);
+  
+  // useEffect(() => {
+    //   const prepare = async () => {
+      //     try {
+        //       // Simulate loading (assets, auth, etc.)
+        //       await new Promise((resolve) => setTimeout(resolve, 1500));
+        //     } catch (err) {
+          //       console.warn(err);
+          //     } finally {
+            //       setIsAppReady(true);
+            //     }
+            //   };
+            //   prepare();
+            // }, []);
+            
+            // const onLayoutRootView = useCallback(async () => {
+              //   if (isAppReady) {
+                //     await SplashScreen.hideAsync(); // Hide native splash
+                //   }
+                // }, [isAppReady]);
+                
+                function ToggleMenu() {
+                  setMenuVisible(!menuVisible);
+                }
+                
+                return (
+                  <ImageBackground
+                    source={theme === "dark" ? bgDark : bgLight}
+                    style={styles.background}
+                  >
+                    <View style={styles.welcome}>
+                      {language === "prt" && <TheWheelPRT />}
+                      {language === "eng" && <TheWheelENG />}
+                      {language === "ita" && <TheWheelITA />}
 
-  const onLayoutRootView = useCallback(async () => {
-    if (isAppReady) {
-      await SplashScreen.hideAsync(); // Hide native splash
-    }
-  }, [isAppReady]);
+                      <View style={styles.bookIcon}>
+                        <MenuButton onPress={ToggleMenu} />
+                      </View>
 
-  function ToggleMenu() {
-    setMenuVisible(!menuVisible);
-  }
-
-  return (
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      {showAnimatedSplash && isAppReady && (
-        <ReanimatedSplash onAnimationEnd={() => setShowAnimatedSplash(false)} />
-      )}
-
-      {isAppReady && !showAnimatedSplash && (
-        <View
-          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-        >
-          <Text>Main App Content</Text>
-          <ImageBackground
-            source={require("@/assets/images/background.jpg")}
-            style={styles.background}
-          >
-            <View style={styles.welcome}>
-              {language === "prt" && <TheWheelPRT />}
-              {language === "eng" && <TheWheelENG />}
-              {language === "ita" && <TheWheelITA />}
-
-              <View style={styles.bookIcon}>
-                <MenuButton onPress={ToggleMenu} />
-              </View>
-
-              {menuVisible && (
-                <WheelMenu isVisible={menuVisible} onClose={ToggleMenu} />
-              )}
-            </View>
-          </ImageBackground>
-        </View>
-      )}
-    </View>
-  );
+                      {menuVisible && (
+                        <WheelMenu
+                          isVisible={menuVisible}
+                          onClose={ToggleMenu}
+                        />
+                      )}
+                    </View>
+                  </ImageBackground>
+                );
 }
 
 const styles = StyleSheet.create({

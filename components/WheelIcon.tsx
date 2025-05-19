@@ -8,6 +8,7 @@ import Animated, {
   withRepeat,
   withTiming,
 } from "react-native-reanimated";
+import { useSettings } from "@/app/SettingsContext";
 
 interface WheelProps {
   style?: ViewStyle;
@@ -15,17 +16,28 @@ interface WheelProps {
 
 const WheelIcon: React.FC<WheelProps> = ({ style }) => {
   const rotation = useSharedValue(0);
+  const hemisphere = useSettings().hemisphere;
+  let rotationHem = 360
+
+  if (hemisphere === "south") {
+    rotationHem = -360;
+  }
+
+  console.log('rotationHem', rotationHem)
+  
 
   useEffect(() => {
+    const toValue = hemisphere === "south" ? -360 : 360;
+
     rotation.value = withRepeat(
-      withTiming(360, {
+      withTiming(toValue, {
         duration: 30000,
         easing: Easing.linear,
       }),
-      -1, // infinite
-      false // don't reverse
+      -1,
+      false
     );
-  }, []);
+  }, [hemisphere]);
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -39,7 +51,7 @@ const WheelIcon: React.FC<WheelProps> = ({ style }) => {
 
   return (
     <Animated.View style={[styles.wheel, style, animatedStyle]}>
-      <View style={{ backgroundColor: "red", width: "50%", height: "50%" }} />
+      <View style={{ backgroundColor: hemisphere === 'north' ? "red" : 'white', width: "50%", height: "50%" }} />
       <View
         style={{
           backgroundColor: "rgb(250 230 30)",
@@ -48,7 +60,7 @@ const WheelIcon: React.FC<WheelProps> = ({ style }) => {
         }}
       />
       <View style={{ backgroundColor: "black", width: "50%", height: "50%" }} />
-      <View style={{ backgroundColor: "white", width: "50%", height: "50%" }} />
+      <View style={{ backgroundColor: hemisphere === 'north' ? "white" : 'red', width: "50%", height: "50%" }} />
     </Animated.View>
   );
 };

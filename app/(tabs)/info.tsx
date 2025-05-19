@@ -13,11 +13,15 @@ import InfoMenu from "@/components/InfoMenu";
 import { SafeAreaView } from "react-native";
 import { useSettings } from "@/app/SettingsContext";
 import { mobile, android, ios } from "../SettingsContext";
+
 const bufalo = require("@/assets/images/bufalone.png");
 
 const InfoScreen = () => {
   const [infoMenuVisible, setInfoMenuVisible] = useState<boolean>(false);
-  const { language } = useSettings();
+  const { language, theme, bgDark, bgLight } = useSettings();
+  console.log('theme', theme)
+
+ 
 
   function ToggleInfoMenu() {
     setInfoMenuVisible(!infoMenuVisible);
@@ -25,14 +29,19 @@ const InfoScreen = () => {
 
   return (
     <ImageBackground
-      source={require("@/assets/images/background.jpg")}
+      source={theme === "dark" ? bgDark : bgLight}
       style={styles.background}
     >
       <SafeAreaView style={styles.container}>
         <Text style={styles.title}>The Medicine Wheel</Text>
         <View style={styles.description}>
           {language === "prt" && (
-            <Text style={styles.text}>
+            <Text
+              style={[
+                styles.text,
+              //  { color: theme === "dark" ? "black" : "black" },
+              ]}
+            >
               Este aplicativo è um portal de accesso a Roda Medicinal, come
               estudada e ensinada por Leo Artese, segundo a tradiçao Lakota e os
               ensinamentos de Sun Bear e Kenneth Meadows.{"\n"} ~{"\n"}
@@ -91,6 +100,7 @@ const styles = StyleSheet.create({
     top: "7%",
   },
   text: {
+    color: "black",
     textAlign: "center",
     fontFamily: "Cocchin",
     fontSize: android ? 13 : 15,
