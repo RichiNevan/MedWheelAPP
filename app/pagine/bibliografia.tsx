@@ -34,15 +34,9 @@ const Inverno = () => {
       source={require("@/assets/images/background.jpg")}
     >
       <ScrollView style={styles.scrollView}>
-        {language === "prt" && (
-          <Text style={styles.title}>BIBLIOGRAFIA</Text>
-        )}
-        {language === "eng" && (
-          <Text style={styles.title}>BIBLIOGRAPHY</Text>
-        )}
-        {language === "ita" && (
-          <Text style={styles.title}>BIBLIOGRAFIA</Text>
-        )}
+        {language === "prt" && <Text style={styles.title}>BIBLIOGRAFIA</Text>}
+        {language === "eng" && <Text style={styles.title}>BIBLIOGRAPHY</Text>}
+        {language === "ita" && <Text style={styles.title}>BIBLIOGRAFIA</Text>}
 
         {language === "prt" && (
           <>
@@ -55,8 +49,24 @@ const Inverno = () => {
             </Text>
           </>
         )}
-        {language === "eng" && <Text style={styles.testo}></Text>}
-        {language === "ita" && <Text style={styles.testo}></Text>}
+        {language === "eng" && (
+          <Text style={styles.testo}>
+            Bibliografia: Kenneth Meadows – The Medicine Way – Element {"\n"}
+            Sun Bear, Wabun Wind & Crysalis Mulligan – Dancing With The Wheel –
+            Fireside {"\n"}Richard Wilhelm – I Ching – Pensamento{"\n"} Willian
+            Bloom – Tempos Sagrados – Triom {"\n"}Richard Heinberg – Celebrando
+            os Solstícios – Madras
+          </Text>
+        )}
+        {language === "ita" && (
+          <Text style={styles.testo}>
+            Bibliografia: Kenneth Meadows – The Medicine Way – Element {"\n"}
+            Sun Bear, Wabun Wind & Crysalis Mulligan – Dancing With The Wheel –
+            Fireside {"\n"}Richard Wilhelm – I Ching – Pensamento{"\n"} Willian
+            Bloom – Tempos Sagrados – Triom {"\n"}Richard Heinberg – Celebrando
+            os Solstícios – Madras
+          </Text>
+        )}
       </ScrollView>
     </ImageBackground>
   );
@@ -84,6 +94,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontFamily: "Cocchin",
     color: "darkred",
+    margin: 20,
   },
   headerBg: {
     width: "100%",

@@ -41,7 +41,7 @@ const SudEst = () => {
           <Text style={styles.title}>Fertilizzazione - Unione Sacra</Text>
         )}
 
-        <View style={styles.imageView}></View>
+        {/* <View style={styles.imageView}></View> */}
 
         {language === "prt" && (
           <Text style={styles.testo}>

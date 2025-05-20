@@ -36,7 +36,7 @@ const Sud = () => {
         {language === "eng" && <Text style={styles.title}>GROWTH</Text>}
         {language === "ita" && <Text style={styles.title}>CRESCITA</Text>}
 
-        <View style={styles.imageView}></View>
+        {/* <View style={styles.imageView}></View> */}
 
         {language === "prt" && (
           <Text style={styles.testo}>

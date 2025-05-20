@@ -41,7 +41,7 @@ const Inverno = () => {
           <Text style={styles.title}>Ultimo Raccolto - Decomposizione</Text>
         )}
 
-        <View style={styles.imageView}></View>
+        {/* <View style={styles.imageView}></View> */}
 
         {language === "prt" && (
           <Text style={styles.testo}>
